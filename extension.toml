@@ -1,0 +1,15 @@
+id = "typst"
+name = "Typst"
+description = "Typst support."
+version = "0.0.1"
+schema_version = 1
+authors = ["WeetHet <stas.ale66@gmail.com>"]
+repository = "https://codeberg.org/weethet/typst.zed"
+
+[language_servers.tinymist]
+name = "Typst language support"
+language = "Typst"
+
+[grammars.typst]
+repository = "https://github.com/uben0/tree-sitter-typst"
+commit = "f457c77edffd4b93190794355ff5acf7acfb99c6"

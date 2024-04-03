@@ -1,0 +1,11 @@
+[package]
+name = "zed_typst"
+version = "0.0.1"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+zed_extension_api = "0.0.4"
