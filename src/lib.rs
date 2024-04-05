@@ -60,6 +60,8 @@ impl TypstExtension {
             .ok_or_else(|| format!("no asset found matching {:?}", asset_name))?;
 
         let version_dir = format!("tinymist-{}", release.version);
+        fs::create_dir_all(&version_dir).map_err(|e| format!("failed to create directory: {e}"))?;
+
         let binary_path = format!("{version_dir}/tinymist");
 
         if !fs::metadata(&binary_path).map_or(false, |stat| stat.is_file()) {
@@ -70,10 +72,12 @@ impl TypstExtension {
 
             zed::download_file(
                 &asset.download_url,
-                &version_dir,
+                &binary_path,
                 zed::DownloadedFileType::Uncompressed,
             )
             .map_err(|e| format!("failed to download file: {e}"))?;
+
+            zed::make_file_executable(&binary_path)?;
 
             let entries =
                 fs::read_dir(".").map_err(|e| format!("failed to list working directory {e}"))?;
