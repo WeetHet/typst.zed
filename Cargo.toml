@@ -1,6 +1,6 @@
 [package]
 name = "zed_typst"
-version = "0.0.1"
+version = "0.0.2"
 edition = "2021"
 publish = false
 
@@ -8,4 +8,4 @@ publish = false
 crate-type = ["cdylib"]
 
 [dependencies]
-zed_extension_api = "0.0.5"
+zed_extension_api = "0.0.6"

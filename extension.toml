@@ -12,4 +12,4 @@ language = "Typst"
 
 [grammars.typst]
 repository = "https://github.com/uben0/tree-sitter-typst"
-commit = "1ad9724e4e4ea5ab81192e843e74cf664eacc59b"
+commit = "4610172f312e8ce5184e6882be5ad1a1cd800fbe"
