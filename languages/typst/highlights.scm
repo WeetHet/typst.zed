@@ -1,11 +1,7 @@
 ; Taken from https://github.com/uben0/tree-sitter-typst/blob/f457c77edffd4b93190794355ff5acf7acfb99c6/editors/helix/queries/highlights.scm#L4
-(call
-  item: (ident) @function)
-(call
-  item: (field field: (ident) @function.method))
-(tagged field: (ident) @tag)
-(field field: (ident) @tag)
-(comment) @comment
+
+; Improved by @Gaspartcho
+
 
 ; CONTROL
 (let "let" @keyword.storage.type)
@@ -19,6 +15,8 @@
 (set "set" @keyword.control)
 (return "return" @keyword.control)
 (flow ["break" "continue"] @keyword.control)
+
+
 
 ; OPERATOR
 (in ["in" "not"] @keyword.operator)
@@ -37,37 +35,60 @@
 (attach ["^" "_"] @operator)
 (wildcard) @operator
 
+
+
 ; VALUE
-(raw_blck "```" @operator) @markup.raw.block
-(raw_span "`" @operator) @markup.raw.block
-(raw_blck lang: (ident) @tag)
+(ident) @variable
+(raw_blck
+	"```" @punctuation.delimiter
+	(blob) @text.literal
+)
+(raw_blck 	lang: (ident) @tag)
+(raw_span
+	"`" @punctuation.delimiter
+	(blob) @text.literal
+)
+
+
+
+
+
 (label) @tag
 (ref) @tag
-(number) @constant.numeric
+(number) @number
 (string) @string
 (content ["[" "]"] @operator)
-(bool) @constant.builtin.boolean
+(bool) @boolean
 (none) @constant.builtin
 (auto) @constant.builtin
-(ident) @variable
+
+
+
+
+; Functions
+
+(formula (ident) @function.method)
+(attach (ident) @function.method)
+(formula (field (ident) @function.method))
+
+(tagged field: (ident) @tag)
+(field field: (ident) @tag)
+
+(call item: (ident) @function)
+(call item: (field field: (ident) @function.method))
+
 
 ; MARKUP
-(item "-" @markup.list)
-(term ["/" ":"] @markup.list)
-(heading "=" @markup.heading.marker) @markup.heading.1
-(heading "==" @markup.heading.marker) @markup.heading.2
-(heading "===" @markup.heading.marker) @markup.heading.3
-(heading "====" @markup.heading.marker) @markup.heading.4
-(heading "=====" @markup.heading.marker) @markup.heading.5
-(heading "======" @markup.heading.marker) @markup.heading.6
+(item "-" @punctuation.list_marker)
+(term ["/" ":"] @punctuation.list_marker)
+(heading) @title
 (url) @tag
-(emph) @markup.italic
-(strong) @markup.bold
-(symbol) @constant.character
+(emph) @emphasis
+(strong) @emphasis.strong
+(symbol) @operator
 (shorthand) @constant.builtin
 (quote) @markup.quote
 (align) @operator
-(letter) @constant.character
 (linebreak) @constant.builtin
 
 (math "$" @operator)
@@ -79,3 +100,6 @@
 ["," ";" ".." ":" "sep"] @punctuation.delimiter
 "assign" @punctuation
 (field "." @punctuation)
+
+
+(comment) @comment
