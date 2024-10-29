@@ -3,7 +3,7 @@ name = "Typst"
 description = "Typst support."
 version = "0.0.3"
 schema_version = 1
-authors = ["WeetHet <stas.ale66@gmail.com>"]
+authors = ["Harley Wiltzer <harley.wiltzer@mail.mcgill.ca", "WeetHet <stas.ale66@gmail.com>"]
 repository = "https://github.com/weethet/typst.zed"
 
 [language_servers.tinymist]
