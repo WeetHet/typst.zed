@@ -3,11 +3,7 @@
 		"label": "Typst: export file",
 		"command": "typst",
 		"args": ["compile", "\"$ZED_FILE\""],
-		"reveal": "never",
-		"hide": "never",
-		"tags": ["typst-compile"]
 	},
-
 	{
 		"label": "Typst: watch file",
 		"command": "typst",
