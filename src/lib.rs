@@ -137,7 +137,7 @@ impl zed::Extension for TypstExtension {
             command: tinymist_binary.path,
             args: tinymist_binary
                 .args
-                .unwrap_or_else(|| vec!["lsp".to_string()]), //vec!["lsp".to_string()]
+                .unwrap_or_else(|| vec!["lsp".to_string()]),
             env: tinymist_binary.environment.unwrap_or_default(),
         })
     }
