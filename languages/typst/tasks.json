@@ -1,14 +1,14 @@
 [
-	{
-		"label": "Typst: export file",
-		"command": "typst",
-		"args": ["compile", "\"$ZED_FILE\""],
-	},
-	{
-		"label": "Typst: watch file",
-		"command": "typst",
-		"args": ["watch", "\"$ZED_FILE\""],
-		"reveal": "never",
-		"hide": "always"
-	}
+    {
+        "label": "Typst: export file",
+        "command": "typst",
+        "args": ["compile", "--root", "\"$ZED_WORKTREE_ROOT\"", "\"$ZED_FILE\""]
+    },
+    {
+        "label": "Typst: watch file",
+        "command": "typst",
+        "args": ["watch", "--root", "\"$ZED_WORKTREE_ROOT\"", "\"$ZED_FILE\""],
+        "reveal": "never",
+        "hide": "always"
+    }
 ]
