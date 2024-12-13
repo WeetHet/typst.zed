@@ -10,8 +10,7 @@ project-specific config),
   "tinymist": {
     "initialization_options": {
       "exportPdf": "onSave",
-      "outputPath": "$root/$name",
-      "typstExtraArgs": ["--", "main.typ"]
+      "outputPath": "$root/$name"
     }
   }
 }
