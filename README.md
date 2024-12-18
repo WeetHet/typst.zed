@@ -18,6 +18,9 @@ project-specific config),
 
 This will compile a PDF for the `main.typ` file in the project root.
 
+To see all available options refer to [the tinymist documentation](https://github.com/Myriad-Dreamin/tinymist/blob/main/editors/neovim/Configuration.md).
+Beware that the configuration options displayed there apply to **NeoVim**, not Zed, so some might be incorrect or misleading
+
 ## Components
 - Tree Sitter: [tree-sitter-typst](https://github.com/uben0/tree-sitter-typst/)
 - Language Server: [tinymist](https://github.com/Myriad-Dreamin/tinymist/)
