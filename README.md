@@ -8,7 +8,7 @@ project-specific config),
 ```json
 "lsp": {
   "tinymist": {
-    "initialization_options": {
+    "settings": {
       "exportPdf": "onSave",
       "outputPath": "$root/$name"
     }
